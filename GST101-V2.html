@@ -10,7 +10,7 @@
         }
         function Main() {
             var price = document.getElementById('txtPrice').value;
-            document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price) + ' under GST.';
+            document.getElementById('txtGST_price').value = price + ' costs ' + Math.round(GSTCalc(price)*100)/100 + ' under GST.';
         }
     </script>
 </head>
@@ -19,7 +19,7 @@
     <br />
     Enter Price<br />
 
-    <textarea id="txtPrice" rows="1" cols="30"></textarea>
+    <input id="txtPrice" type="number" />
     <input id="btnRun" type="Button" value="Run" onclick="Main()" /><br />
     <br />
     The code returns:<br />
