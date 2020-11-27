@@ -4,15 +4,6 @@
 <head>
     <title>GST Calculator</title>
     <meta charset="utf-8" />
-    <script type='text/javascript'>
-        function GSTCalc(cost) {
-            return cost * 1.1;
-        }
-        function Main() {
-            var price = document.getElementById('txtPrice').value;
-            document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price).toFixed(2) + ' under GST.';
-        }
-    </script>
 </head>
 <body>
     <h1>GST Calculator</h1>
@@ -26,4 +17,14 @@
     <textarea id="txtGST_price" rows="3" cols="30" readonly></textarea>
 
 </body>
+<script type='text/javascript'>
+        function GSTCalc(cost) {
+            return cost * 1.1;
+        }
+        function Main() {
+            var price = document.getElementById('txtPrice').value;
+            document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price).toFixed(2) + ' under GST.';
+        }
+		document.getElementById('txtPrice').onkeyup = function(e) {/*if (e.keyCode == 13) */Main()};
+    </script>
 </html>
