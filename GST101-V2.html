@@ -16,18 +16,33 @@
     The code returns:<br />
     <textarea id="txtGST_price" rows="3" cols="30" readonly></textarea>
 </p>
-    <p>  <img src="Goods_Tax_service.jpg" width="823" height="350" alt="GST over paper"/></p>
+    <p>  <img onClick="RInterval()" id="spimage" src="Goods_Tax_service.jpg" width="823" height="350" alt="GST over paper"/></p>
     <p>Image from <a href="https://upload.wikimedia.org/wikipedia/commons/a/af/Goods_Tax_service.jpg">https://upload.wikimedia.org/wikipedia/commons/a/af/Goods_Tax_service.jpg</a></p>
     <p>Taken 30/11/20 12:40 PM</p>
 </body>
 <script type='text/javascript'>
-        function GSTCalc(cost) {
-            return cost * 1.1;
-        }
-        function Main() {
-            var price = document.getElementById('txtPrice').value;
-            document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price).toFixed(2) + ' under GST.';
-        }
-		document.getElementById('txtPrice').onkeyup = function(e) {/*if (e.keyCode == 13) */Main()};
-    </script>
+	function GSTCalc(cost) {
+		return cost * 1.1;
+	}
+	function Main() {
+		var price = document.getElementById('txtPrice').value;
+		document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price).toFixed(2) + ' under GST.';
+	}
+	document.getElementById('txtPrice').onkeyup = function(e) {/*if (e.keyCode == 13) */Main()};
+	var r = 0;
+	var x = 0;
+	var dir = 1;
+	function rotate() {
+		r++;
+		x += dir;
+		document.getElementById("spimage").style.transform = "Translate("+x+"px,0px) Rotate(" + r + "deg)";
+		document.getElementById("spimage").style.filter = "Blur("+x/100+"px)";
+		if ((x > 1000) || (x < 0)) {
+			dir *= -1;
+		}
+	}
+	function RInterval() {
+		x = setInterval(rotate, 10)
+	}
+</script>
 </html>
