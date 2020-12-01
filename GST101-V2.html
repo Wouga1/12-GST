@@ -10,7 +10,7 @@
     <p><br />
     Enter Price<br />
 
-    <input id="txtPrice" type="number" />
+    <input id="txtPrice" type="number" placeholder="0.00" />
     <input id="btnRun" type="Button" value="Run" onclick="Main()" /><br />
     <br />
     The code returns:<br />
@@ -41,14 +41,14 @@
 	function rotate() {
 		r++;
 		x += dir;
-		document.getElementById("spimage").style.transform = "Translate("+x+"px,0px) Rotate(" + r + "deg)";
+		document.getElementById("spimage").style.transform = "Translate("+x+"px,0px) Rotate("+r+"deg)";
 		document.getElementById("spimage").style.filter = "Blur("+x/100+"px)";
 		if ((x > 1000) || (x < 0)) {
 			dir *= -1;
 		}
 	}
 	function RInterval() {
-		x = setInterval(rotate, 10)
+		interv = setInterval(rotate, 10)
 	}
 </script>
 </html>
