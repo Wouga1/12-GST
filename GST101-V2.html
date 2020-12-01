@@ -28,7 +28,13 @@
 		var price = document.getElementById('txtPrice').value;
 		document.getElementById('txtGST_price').value = price + ' costs ' + GSTCalc(price).toFixed(2) + ' under GST.';
 	}
-	document.getElementById('txtPrice').onkeyup = function(e) {/*if (e.keyCode == 13) */Main()};
+	document.getElementById('txtPrice').onkeyup = function(e) {
+		var price = document.getElementById('txtPrice')
+		if (/\.\d{3,}/.test(price.value)) {
+			price.value = Number(price.value).toFixed(2);
+		}
+		/*if (e.keyCode == 13) */Main()
+	};
 	var r = 0;
 	var x = 0;
 	var dir = 1;
